@@ -336,16 +336,14 @@ contexts:
     - match: '&'
       scope: invalid.illegal.bad-ampersand.html
   frontmatter:
-    - match: '\A(-{3})\s*$'
+    - match: ^---
       captures:
-        1: comment.block.html
-      push:
-        - meta_content_scope: meta.embedded.block.frontmatter
-        - match: '(^|\G)(-{3})|\.{3}\s*$'
-          captures:
-            2: comment.block.html
-          pop: true
-        - include: scope:source.tsx
+        0: comment.block.html
+      embed: scope:source.tsx
+      embed_scope: meta.embedded.ts.astro
+      escape: ^---
+      escape_captures:
+        0: comment.block.html
   string-double-quoted:
     - match: '"'
       captures:
