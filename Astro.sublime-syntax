@@ -365,7 +365,7 @@ contexts:
           pop: true
         - include: entities
   tag-generic-attribute:
-    - match: '\b([a-zA-Z\-:]+)'
+    - match: '(@|\\b)([a-zA-Z\\-:]+)'
       scope: entity.other.attribute-name.html
   tag-id-attribute:
     - match: \b(id)\b\s*(=)
