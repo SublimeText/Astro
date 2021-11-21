@@ -302,16 +302,14 @@ contexts:
     - match: <
       scope: invalid.illegal.bad-angle-bracket.html
   astro-expressions:
-    - match: '\{'
+    - match: \{
       captures:
         0: punctuation.definition.generic.begin.html
-      push:
-        - meta_scope: expression.embbeded.astro
-        - match: '\}'
-          captures:
-            0: punctuation.definition.generic.end.html
-          pop: true
-        - include: scope:source.tsx
+      embed: scope:source.tsx
+      embed_scope: meta.template.astro
+      escape: \}
+      escape_captures:
+        0: punctuation.definition.generic.end.html
   astro-markdown:
     - match: (<)(Markdown)(>)
       captures:
