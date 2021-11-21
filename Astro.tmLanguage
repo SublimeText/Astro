@@ -1110,10 +1110,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#astro-load-directive</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#astro-expressions</string>
 				</dict>
 				<dict>
