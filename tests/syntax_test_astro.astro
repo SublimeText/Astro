@@ -1,0 +1,198 @@
+// SYNTAX TEST "HTML (Astro).sublime-syntax"
+
+  <? <html>
+//^^^^^^^^^ comment.block.astro
+//^^ punctuation.definition.comment.begin.astro
+//        ^ punctuation.definition.comment.end.astro
+
+  <![CDATA[This is {page.author} string]]>
+//^^^^^^^^^ meta.tag.sgml.cdata.html - meta.string
+//         ^^^^^^^^ meta.tag.sgml.cdata.html string.unquoted.cdata.html
+//                 ^^^^^^^^^^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro
+//                              ^^^^^^^ meta.tag.sgml.cdata.html string.unquoted.cdata.html
+//                                     ^^^ meta.tag.sgml.cdata.html punctuation.definition.tag.end.html
+
+  <![CDATA[This is { an( `embedded ${foo.bar} text` ); } message]]>
+//^^^^^^^^^ meta.tag.sgml.cdata.html
+//         ^^^^^^^^ meta.tag.sgml.cdata.html - meta.interpolation
+//                 ^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro - meta.group
+//                     ^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js - meta.string meta.string
+//                       ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js meta.string.js - meta.interpolation meta.interpolation
+//                                 ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js meta.string.js meta.interpolation.js
+//                                           ^^^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js meta.string.js - meta.interpolation meta.interpolation
+//                                                 ^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js - meta.string meta.string
+//                                                   ^^^ meta.tag.sgml.cdata.html meta.interpolation.astro - meta.group
+//                                                      ^^^^^^^^ meta.tag.sgml.cdata.html
+//                                                              ^^^ meta.tag.sgml.cdata.html
+//^^^ punctuation.definition.tag.begin.html
+//   ^^^^^ keyword.declaration.cdata.html
+//        ^ punctuation.definition.tag.begin.html
+//         ^^^^^^^^ string.unquoted.cdata.html
+//                 ^ punctuation.section.interpolation.begin.astro - source.jsx
+//                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.jsx.embedded.astro
+//                   ^^ variable.function.js
+//                     ^ punctuation.section.group.begin.js
+//                       ^^^^^^^^^^ meta.string.js string.quoted.other.js
+//                                 ^^^^^^^^^^ meta.string.js meta.interpolation.js
+//                                           ^^^^^^ meta.string.js string.quoted.other.js
+//                                                  ^ punctuation.section.group.end.js
+//                                                   ^ punctuation.terminator.statement.js
+//                                                     ^ punctuation.section.interpolation.end.astro - source.jsx
+//                                                      ^^^^^^^^ string.unquoted.cdata.html
+//                                                              ^^^ punctuation.definition.tag.end.html
+
+  <a class={`${varOne} ${varTwo} my-class is-here`} href={href} id="my-id">{linkTitle}</a>
+//^^^ meta.tag.inline - meta.attribute-with-value
+//   ^^^^^^ meta.tag.inline meta.attribute-with-value.class - meta.class-name - meta.string
+//         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.tag.inline meta.attribute-with-value.class.html meta.class-name.html meta.string.html meta.interpolation.astro
+//                                                 ^ meta.tag.inline - meta.attribute-with-value
+//                                                  ^^^^^^^^^^^ meta.tag.inline meta.attribute-with-value.href.html
+//                                                             ^ meta.tag.inline - meta.attribute-with-value
+//                                                              ^^^^^^^^^^ meta.tag.inline meta.attribute-with-value.id.html
+//                                                                        ^ meta.tag.inline - meta.attribute-with-value
+//                                                                         ^^^^^^^^^^^ meta.interpolation.astro - meta.tag
+//                                                                                    ^^^^ meta.tag.inline
+// ^ entity.name.tag
+//   ^^^^^ entity.other.attribute-name
+//        ^ punctuation.separator.key-value
+//         ^ punctuation.section.interpolation.begin.astro - source
+//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.jsx.embedded.astro meta.string.js
+//           ^^^^^^^^^ meta.interpolation.js
+//           ^^ punctuation.section.interpolation.begin.js
+//                   ^ punctuation.section.interpolation.end.js
+//                     ^^^^^^^^^ meta.interpolation.js
+//                     ^^ punctuation.section.interpolation.begin.js
+//                             ^ punctuation.section.interpolation.end.js
+//                                                ^ punctuation.section.interpolation.end.astro - source
+//                                                  ^^^^ entity.other.attribute-name
+//                                                      ^ punctuation.separator.key-value
+//                                                       ^^^^^^ meta.path.url.html meta.string.html meta.interpolation.astro
+
+  <ul>{posts.map(post => <li>{post.frontmatter.title}</li>)}</ul>
+//^^^^ meta.tag.block
+//    ^ meta.interpolation.astro punctuation.section.interpolation.begin.astro - source
+//     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.interpolation.astro source.jsx.embedded.astro meta.function-call.method.js
+//                                                         ^ meta.interpolation.astro punctuation.section.interpolation.end.astro - source
+//                                                          ^^^^^ meta.tag.block
+
+  <raw.Component attr:value is:raw attr:value=Value> <p>Text</p> </raw.Component>
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.tag.component.begin.astro
+//                                                  ^^^^^^^^^^^^^ - meta.tag
+//                                                               ^^^^^^^^^^^^^^^^ meta.tag.component.end.astro
+//^ punctuation.definition.tag.begin.astro
+// ^^^^^^^^^^^^^ entity.name.tag.component.astro
+// ^^^ support.namespace.astro
+//    ^ punctuation.accessor.dot.astro
+//     ^^^^^^^^^ support.class.component.astro
+//               ^^^^^^^^^^ meta.attribute-with-value.astro
+//               ^^^^ keyword.control.directive.astro
+//                   ^ punctuation.separator.key-value.astro
+//                    ^^^^^ variable.parameter.astro
+//                          ^^^^^^ meta.attribute-with-value.astro
+//                          ^^ keyword.control.directive.astro
+//                            ^ punctuation.separator.key-value.astro
+//                             ^^^ variable.parameter.astro
+//                                 ^^^^^^^^^^^^^^^^ meta.attribute-with-value.astro
+//                                 ^^^^ keyword.control.directive.astro
+//                                     ^ punctuation.separator.key-value.astro
+//                                      ^^^^^ variable.parameter.astro
+//                                           ^ punctuation.separator.key-value.html
+//                                            ^^^^^ meta.string.html string.unquoted.html
+//                                                 ^ punctuation.definition.tag.end.astro
+//                                                               ^^ punctuation.definition.tag.begin.astro
+//                                                                 ^^^^^^^^^^^^^ entity.name.tag.component.astro
+//                                                                 ^^^ support.namespace.astro
+//                                                                    ^ punctuation.accessor.dot.astro
+//                                                                     ^^^^^^^^^ support.class.component.astro
+//                                                                              ^ punctuation.definition.tag.end.astro
+
+
+<Layout>
+// <- meta.tag.component.begin.astro punctuation.definition.tag.begin.astro
+//^^^^^^ meta.tag.component.begin.astro
+//^^^^^ entity.name.tag.component.astro support.class.component.astro
+  <Markdown>
+//^^^^^^^^^^ meta.tag.component.begin.astro
+//^ punctuation.definition.tag.begin.astro
+// ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
+//         ^ punctuation.definition.tag.end.astro
+
+    # Hello world!
+//  ^^^^^^^^^^^^^^ text.html.astro
+
+    **Everything** supported in a `.md` file is also supported here!
+//  ^^^^^^^^^^^^^^ text.html.astro
+//                                ^^^^^ text.html.astro
+
+    There is _zero_ runtime overhead.
+//           ^^^^^^ text.html.astro
+
+    In addition, Astro supports:
+    - Astro {expressions}
+//          ^^^^^^^^^^^^^ text.html.astro
+//          ^ punctuation.section.interpolation.begin.astro
+//           ^^^^^^^^^^^ source.jsx.embedded.astro variable.other.readwrite.js
+//                      ^ punctuation.section.interpolation.end.astro
+
+    ```js
+      // This content is not transformed!
+      const object = { someOtherValue };
+    ```
+
+    ```astro
+    ---
+    // Import some markdown. Dynamic import() is also supported!
+    import * as greatPost from '../pages/post/great-post.md';
+
+    // Also, you can import multiple files with Astro.glob
+    const posts = await Astro.glob('../pages/post/*.md');
+    ---
+
+    <ul>
+      {posts.map(post => <li>{post.frontmatter.title}</li>)}
+    </ul>
+
+    <Markdown content={content} />
+
+    ```
+
+
+    # Recursive Markdown support (Component children are also processed as Markdown)
+
+    <Markdown content={content} />
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.html.astro
+//  ^ punctuation.definition.tag.begin.astro
+//   ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
+//            ^^^^^^^^^^^^^^^^^ meta.attribute-with-value.html
+//            ^^^^^^^ entity.other.attribute-name.html
+//                   ^ punctuation.separator.key-value.html
+//                    ^^^^^^^^^ meta.string.html meta.interpolation.astro
+//                    ^ punctuation.section.interpolation.begin.astro
+//                     ^^^^^^^ source.jsx.embedded.astro variable.other.readwrite.js
+//                            ^ punctuation.section.interpolation.end.astro
+//                              ^^ punctuation.definition.tag.end.astro
+
+  </Markdown>
+//^^^^^^^^^^^ text.html.astro
+//^^ punctuation.definition.tag.begin.astro
+//  ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
+//          ^ punctuation.definition.tag.end.astro
+</Layout>
+// <- meta.tag.component.end.astro punctuation.definition.tag.begin.astro
+//^^^^^^^ meta.tag.component.end.astro
+//^^^^^^ entity.name.tag.component.astro support.class.component.astro
+
+<Layout>
+  <Markdown content={content} />
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.tag.component.begin.astro
+//^ punctuation.definition.tag.begin.astro
+// ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
+//          ^^^^^^^^^^^^^^^^^ meta.attribute-with-value.html
+//          ^^^^^^^ entity.other.attribute-name.html
+//                 ^ punctuation.separator.key-value.html
+//                  ^^^^^^^^^ meta.string.html meta.interpolation.astro
+//                  ^ punctuation.section.interpolation.begin.astro
+//                   ^^^^^^^ source.jsx.embedded.astro variable.other.readwrite.js
+//                          ^ punctuation.section.interpolation.end.astro
+//                            ^^ punctuation.definition.tag.end.astro
+</Layout>

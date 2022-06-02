@@ -1,0 +1,33 @@
+---
+import { Markdown } from 'astro/components';
+import Layout from '../layouts/Layout.astro';
+
+const expressions = 'Lorem ipsum';
+---
+<Layout>
+  <Markdown>
+    # Hello world!
+
+    **Everything** supported in a `.md` file is also supported here!
+
+    ```js
+      // This content is not transformed!
+      const object = { someOtherValue };
+    ```
+
+    ## Posts
+
+    {posts.map(async (post) => {
+      const firstParagraph = parse(await post.compiledContent())
+        .querySelector('p:first-of-type');
+      return (
+        <Fragment>
+          <h2>{post.frontmatter.title}</h2>
+          {firstParagraph ? <p>{firstParagraph.innerText}</p> : null}
+        </Fragment>
+      );
+    })}
+  </Markdown>
+</Layout>
+
+
