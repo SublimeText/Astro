@@ -36,3 +36,4 @@ The easiest way to install is using [Package Control](https://packagecontrol.io)
   - [LESS](https://packagecontrol.io/packages/LESS)
   - [Sass](https://packagecontrol.io/packages/Sass)
   - [Stylus](https://packagecontrol.io/packages/Stylus)
+- Intellisense features are provided by [LSP](https://packagecontrol.io/packages/LSP) and [LSP-astro](https://packagecontrol.io/packages/LSP-astro).
