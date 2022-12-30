@@ -112,10 +112,10 @@
 //^^^^^^ meta.tag.component.begin.astro
 //^^^^^ entity.name.tag.component.astro support.class.component.astro
   <Markdown>
-//^^^^^^^^^^ meta.tag.component.begin.astro
+//^^^^^^^^^^ meta.tag.component.begin.astro - text.html.markdown.astro - meta.tag.component meta.tag.component
 //^ punctuation.definition.tag.begin.astro
 // ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
-//         ^ punctuation.definition.tag.end.astro meta.tag.component.end.astro
+//         ^ punctuation.definition.tag.end.astro
 
     # Hello world!
 //  ^^^^^^^^^^^^^^ text.html.markdown.astro markup.heading.1.markdown
@@ -161,7 +161,7 @@
     # Recursive Markdown support (Component children are also processed as Markdown)
 
     <Markdown content={content} />
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.html.markdown.astro meta.disable-markdown meta.tag.component.begin.astro
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.html.markdown.astro meta.disable-markdown meta.tag.component.begin.astro - meta.tag.component meta.tag.component
 //  ^ punctuation.definition.tag.begin.astro
 //   ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
 //            ^^^^^^^^^^^^^^^^^ meta.attribute-with-value.html
@@ -174,7 +174,7 @@
 //                              ^^ punctuation.definition.tag.end.astro
 
   </Markdown>
-//^^^^^^^^^^^ text.html.markdown.astro meta.disable-markdown meta.tag.component.end.astro
+//^^^^^^^^^^^ text.html.astro meta.tag.component.end.astro - text.html.markdown.astro - meta.tag.component meta.tag.component
 //^^ punctuation.definition.tag.begin.astro
 //  ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
 //          ^ punctuation.definition.tag.end.astro

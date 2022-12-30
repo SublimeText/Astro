@@ -61,8 +61,12 @@ contexts:
 ###[ CUSTOM HTML ]############################################################
 
   cdata-content:
-    - meta_prepend: true
     - meta_include_prototype: false
+    - meta_scope: meta.tag.sgml.cdata.html
+    - meta_content_scope: meta.string.html string.unquoted.cdata.html
+    - match: ']]>'
+      scope: punctuation.definition.tag.end.html
+      pop: 1
     - include: astro-string-interpolations
 
   tag-attributes:
@@ -410,12 +414,7 @@ contexts:
       scope: meta.tag.component.begin.astro punctuation.definition.tag.end.astro
       embed: Markdown (Astro).sublime-syntax#indented-markdown
       embed_scope: text.html.markdown.astro
-      escape: (</)(Markdown)[{{ascii_space}}]*(>)
-      escape_captures:
-        0: meta.tag.component.end.astro
-        1: punctuation.definition.tag.begin.astro
-        2: entity.name.tag.component.astro support.class.component.astro
-        3: punctuation.definition.tag.end.astro
+      escape: (?=</Markdown[{{ascii_space}}]*>)
       pop: 1
     - include: tag-attributes
     - include: astro-tag-end-maybe-self-closing
