@@ -410,12 +410,7 @@ contexts:
       scope: meta.tag.component.begin.astro punctuation.definition.tag.end.astro
       embed: Markdown (Astro).sublime-syntax#indented-markdown
       embed_scope: text.html.markdown.astro
-      escape: (</)(Markdown)[{{ascii_space}}]*(>)
-      escape_captures:
-        0: meta.tag.component.end.astro
-        1: punctuation.definition.tag.begin.astro
-        2: entity.name.tag.component.astro support.class.component.astro
-        3: punctuation.definition.tag.end.astro
+      escape: (?=</Markdown[{{ascii_space}}]*>)
       pop: 1
     - include: tag-attributes
     - include: astro-tag-end-maybe-self-closing

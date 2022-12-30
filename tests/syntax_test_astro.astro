@@ -7,22 +7,22 @@
 
   <![CDATA[This is {page.author} string]]>
 //^^^^^^^^^ meta.tag.sgml.cdata.html - meta.string
-//         ^^^^^^^^ meta.tag.sgml.cdata.html string.unquoted.cdata.html
-//                 ^^^^^^^^^^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro
-//                              ^^^^^^^ meta.tag.sgml.cdata.html string.unquoted.cdata.html
+//         ^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html string.unquoted.cdata.html
+//                 ^^^^^^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro
+//                              ^^^^^^^ meta.tag.sgml.cdata.html meta.string.html string.unquoted.cdata.html
 //                                     ^^^ meta.tag.sgml.cdata.html punctuation.definition.tag.end.html
 
   <![CDATA[This is { an( `embedded ${foo.bar} text` ); } message]]>
 //^^^^^^^^^ meta.tag.sgml.cdata.html
-//         ^^^^^^^^ meta.tag.sgml.cdata.html - meta.interpolation
-//                 ^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro - meta.group
-//                     ^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js - meta.string meta.string
-//                       ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js meta.string.js - meta.interpolation meta.interpolation
-//                                 ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js meta.string.js meta.interpolation.js
-//                                           ^^^^^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js meta.string.js - meta.interpolation meta.interpolation
-//                                                 ^^ meta.tag.sgml.cdata.html meta.interpolation.astro meta.group.js - meta.string meta.string
-//                                                   ^^^ meta.tag.sgml.cdata.html meta.interpolation.astro - meta.group
-//                                                      ^^^^^^^^ meta.tag.sgml.cdata.html
+//         ^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html - meta.interpolation
+//                 ^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro - meta.group
+//                     ^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js - meta.string meta.string
+//                       ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js meta.string.js - meta.interpolation meta.interpolation
+//                                 ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js meta.string.js meta.interpolation.js
+//                                           ^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js meta.string.js - meta.interpolation meta.interpolation
+//                                                 ^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js - meta.string meta.string
+//                                                   ^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro - meta.group
+//                                                      ^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html
 //                                                              ^^^ meta.tag.sgml.cdata.html
 //^^^ punctuation.definition.tag.begin.html
 //   ^^^^^ keyword.declaration.cdata.html
@@ -32,9 +32,9 @@
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.jsx.embedded.astro
 //                   ^^ variable.function.js
 //                     ^ punctuation.section.group.begin.js
-//                       ^^^^^^^^^^ meta.string.js string.quoted.other.js
-//                                 ^^^^^^^^^^ meta.string.js meta.interpolation.js
-//                                           ^^^^^^ meta.string.js string.quoted.other.js
+//                       ^^^^^^^^^^ meta.string.html meta.string.js string.quoted.other.js
+//                                 ^^^^^^^^^^ meta.string.html meta.string.js meta.interpolation.js
+//                                           ^^^^^^ meta.string.html meta.string.js string.quoted.other.js
 //                                                  ^ punctuation.section.group.end.js
 //                                                   ^ punctuation.terminator.statement.js
 //                                                     ^ punctuation.section.interpolation.end.astro - source.jsx
@@ -118,18 +118,19 @@
 //         ^ punctuation.definition.tag.end.astro
 
     # Hello world!
-//  ^^^^^^^^^^^^^^ text.html.astro
+//  ^^^^^^^^^^^^^^ text.html.markdown.astro markup.heading.1.markdown
 
     **Everything** supported in a `.md` file is also supported here!
-//  ^^^^^^^^^^^^^^ text.html.astro
-//                                ^^^^^ text.html.astro
+//  ^^^^^^^^^^^^^^ text.html.markdown.astro meta.paragraph markup.bold
+//                                ^^^^^ text.html.markdown.astro meta.paragraph markup.raw.inline
 
     There is _zero_ runtime overhead.
-//           ^^^^^^ text.html.astro
+//           ^^^^^^ text.html.markdown.astro meta.paragraph markup.italic
 
     In addition, Astro supports:
     - Astro {expressions}
-//          ^^^^^^^^^^^^^ text.html.astro
+//  ^ punctuation.definition.list_item
+//          ^^^^^^^^^^^^^ text.html.markdown.astro meta.paragraph meta.interpolation.astro
 //          ^ punctuation.section.interpolation.begin.astro
 //           ^^^^^^^^^^^ source.jsx.embedded.astro variable.other.readwrite.js
 //                      ^ punctuation.section.interpolation.end.astro
@@ -160,7 +161,7 @@
     # Recursive Markdown support (Component children are also processed as Markdown)
 
     <Markdown content={content} />
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.html.astro
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.html.markdown.astro meta.disable-markdown meta.tag.component.begin.astro - meta.tag.component meta.tag.component
 //  ^ punctuation.definition.tag.begin.astro
 //   ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
 //            ^^^^^^^^^^^^^^^^^ meta.attribute-with-value.html
@@ -173,7 +174,7 @@
 //                              ^^ punctuation.definition.tag.end.astro
 
   </Markdown>
-//^^^^^^^^^^^ text.html.astro
+//^^^^^^^^^^^ text.html.astro meta.tag.component.end.astro - text.html.markdown.astro - meta.tag.component meta.tag.component
 //^^ punctuation.definition.tag.begin.astro
 //  ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
 //          ^ punctuation.definition.tag.end.astro
