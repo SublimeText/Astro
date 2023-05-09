@@ -7,11 +7,11 @@
 The {frontmatter.author} is {frontmatter.age} and lives in Toronto, Canada.
 |   ^^^^^^^^^^^^^^^^^^^^ meta.paragraph.markdown meta.interpolation.astro
 |   ^ punctuation.section.interpolation.begin.astro - source.tsx
-|    ^^^^^^^^^^^^^^^^^^ source.jsx.embedded.astro
+|    ^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro
 |                      ^ punctuation.section.interpolation.end.astro - source.tsx
 |                           ^^^^^^^^^^^^^^^^^ meta.paragraph.markdown meta.interpolation.astro
 |                           ^ punctuation.section.interpolation.begin.astro - source.tsx
-|                            ^^^^^^^^^^^^^^^ source.jsx.embedded.astro
+|                            ^^^^^^^^^^^^^^^ source.tsx.embedded.astro
 |                                           ^ punctuation.section.interpolation.end.astro - source.tsx
 
 # Import Components
@@ -26,9 +26,9 @@ The {frontmatter.author} is {frontmatter.age} and lives in Toronto, Canada.
 |            ^^^^^^^^^^^^^^^^^^^^ meta.string.html meta.interpolation.astro
 |                                  ^ meta.disable-markdown - meta.tag
 |            ^ punctuation.section.interpolation.begin.astro
-|             ^^^^^^^^^^^ source.jsx.embedded.astro variable.other.readwrite.js
-|                        ^ source.jsx.embedded.astro punctuation.accessor.js
-|                         ^^^^^^ source.jsx.embedded.astro meta.property.object.js
+|             ^^^^^^^^^^^ source.tsx.embedded.astro variable.other.readwrite.js
+|                        ^ source.tsx.embedded.astro punctuation.accessor.js
+|                         ^^^^^^ source.tsx.embedded.astro meta.property.object.js
 |                               ^ punctuation.section.interpolation.end.astro
 |                                ^^ punctuation.definition.tag.end.astro
 
@@ -90,7 +90,7 @@ The {frontmatter.author} is {frontmatter.age} and lives in Toronto, Canada.
 |^^^ markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro
 |^^ punctuation.section.block.begin.frontmatter.astro
 
-| <- markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro source.jsx.embedded.astro
+| <- markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro source.ts.embedded.astro
 ---
 | <- markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro punctuation.section.block.end.frontmatter.astro
 |^^^ markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro
@@ -100,7 +100,7 @@ The {frontmatter.author} is {frontmatter.age} and lives in Toronto, Canada.
   {posts.map(post => <li>{post.frontmatter.title}</li>)}
 | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ markup.raw.code-fence.markdown-gfm text.html.astro meta.interpolation.astro
 | ^ punctuation.section.interpolation.begin.astro
-|  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.jsx.embedded.astro meta.function-call.method.js
+|  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro meta.function-call.method.js
 |                                                      ^ punctuation.section.interpolation.end.astro
 </ul>
 ```
