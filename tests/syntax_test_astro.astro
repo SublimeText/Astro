@@ -28,8 +28,8 @@
 //   ^^^^^ keyword.declaration.cdata.html
 //        ^ punctuation.definition.tag.begin.html
 //         ^^^^^^^^ string.unquoted.cdata.html
-//                 ^ punctuation.section.interpolation.begin.astro - source.jsx
-//                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.jsx.embedded.astro
+//                 ^ punctuation.section.interpolation.begin.astro - source.tsx
+//                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro
 //                   ^^ variable.function.js
 //                     ^ punctuation.section.group.begin.js
 //                       ^^^^^^^^^^ meta.string.html meta.string.js string.quoted.other.js
@@ -37,7 +37,7 @@
 //                                           ^^^^^^ meta.string.html meta.string.js string.quoted.other.js
 //                                                  ^ punctuation.section.group.end.js
 //                                                   ^ punctuation.terminator.statement.js
-//                                                     ^ punctuation.section.interpolation.end.astro - source.jsx
+//                                                     ^ punctuation.section.interpolation.end.astro - source.tsx
 //                                                      ^^^^^^^^ string.unquoted.cdata.html
 //                                                              ^^^ punctuation.definition.tag.end.html
 
@@ -56,7 +56,7 @@
 //   ^^^^^ entity.other.attribute-name
 //        ^ punctuation.separator.key-value
 //         ^ punctuation.section.interpolation.begin.astro - source
-//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.jsx.embedded.astro meta.string.js
+//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro meta.string.js
 //           ^^^^^^^^^ meta.interpolation.js
 //           ^^ punctuation.section.interpolation.begin.js
 //                   ^ punctuation.section.interpolation.end.js
@@ -71,7 +71,7 @@
   <ul>{posts.map(post => <li>{post.frontmatter.title}</li>)}</ul>
 //^^^^ meta.tag.block
 //    ^ meta.interpolation.astro punctuation.section.interpolation.begin.astro - source
-//     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.interpolation.astro source.jsx.embedded.astro meta.function-call.method.js
+//     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.interpolation.astro source.tsx.embedded.astro meta.function-call.method.js
 //                                                         ^ meta.interpolation.astro punctuation.section.interpolation.end.astro - source
 //                                                          ^^^^^ meta.tag.block
 
@@ -132,7 +132,7 @@
 //  ^ punctuation.definition.list_item
 //          ^^^^^^^^^^^^^ text.html.markdown.astro meta.paragraph meta.interpolation.astro
 //          ^ punctuation.section.interpolation.begin.astro
-//           ^^^^^^^^^^^ source.jsx.embedded.astro variable.other.readwrite.js
+//           ^^^^^^^^^^^ source.tsx.embedded.astro variable.other.readwrite.js
 //                      ^ punctuation.section.interpolation.end.astro
 
     ```js
@@ -169,7 +169,7 @@
 //                   ^ punctuation.separator.key-value.html
 //                    ^^^^^^^^^ meta.string.html meta.interpolation.astro
 //                    ^ punctuation.section.interpolation.begin.astro
-//                     ^^^^^^^ source.jsx.embedded.astro variable.other.readwrite.js
+//                     ^^^^^^^ source.tsx.embedded.astro variable.other.readwrite.js
 //                            ^ punctuation.section.interpolation.end.astro
 //                              ^^ punctuation.definition.tag.end.astro
 
@@ -193,7 +193,7 @@
 //                 ^ punctuation.separator.key-value.html
 //                  ^^^^^^^^^ meta.string.html meta.interpolation.astro
 //                  ^ punctuation.section.interpolation.begin.astro
-//                   ^^^^^^^ source.jsx.embedded.astro variable.other.readwrite.js
+//                   ^^^^^^^ source.tsx.embedded.astro variable.other.readwrite.js
 //                          ^ punctuation.section.interpolation.end.astro
 //                            ^^ punctuation.definition.tag.end.astro
 </Layout>
