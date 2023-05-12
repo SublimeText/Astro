@@ -30,8 +30,6 @@ The easiest way to install is using [Package Control](https://packagecontrol.io)
 ## Requirements
 
 - Astro 2.0.0 requires Sublime Text 4126+
-- When running on Sublime Text 4134+ Astro dynamically uses MarkdownEditing's Markdown syntax 
-  if present and falls back to ST's default Markdown otherwise.
 - Syntax highlighting in `<style>` tags is powered by 3rd-party packages
   - [LESS](https://packagecontrol.io/packages/LESS)
   - [Sass](https://packagecontrol.io/packages/Sass)
