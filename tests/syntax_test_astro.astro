@@ -5,6 +5,16 @@
 //^^ punctuation.definition.comment.begin.astro
 //        ^ punctuation.definition.comment.end.astro
 
+  <? Comment {interpol} >
+//^^^^^^^^^^^^^^^^^^^^^^^ comment.block.astro - meta.interpolation
+//                       ^ - comment
+
+  <!-- Comment {interpol} -->
+//^^^^^^^^^^^^^ comment.block.html - meta.interpolation
+//             ^^^^^^^^^^ comment.block.html meta.interpolation.astro
+//                       ^^^^ comment.block.html - meta.interpolation
+//                           ^ - comment
+
   <![CDATA[This is {page.author} string]]>
 //^^^^^^^^^ meta.tag.sgml.cdata.html - meta.string
 //         ^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html string.unquoted.cdata.html
@@ -106,6 +116,19 @@
 //                                                                     ^^^^^^^^^ support.class.component.astro
 //                                                                              ^ punctuation.definition.tag.end.astro
 
+<Component {attr}={value}/>
+//^^^^^^^^^^^^^^^^^^^^^^^^^ meta.tag.component.begin.astro
+//         ^^^^^^ meta.attribute-with-value.html entity.other.attribute-name.html meta.interpolation.astro
+//               ^ meta.attribute-with-value.html punctuation.separator.key-value.html
+//                ^^^^^^^ meta.attribute-with-value.html meta.string.html meta.interpolation.astro
+//                       ^^ punctuation.definition.tag.end.astro
+
+<Markdown {attr}={value}/>
+//^^^^^^^^^^^^^^^^^^^^^^^^ meta.tag.component.begin.astro
+//        ^^^^^^ meta.attribute-with-value.html entity.other.attribute-name.html meta.interpolation.astro
+//              ^ meta.attribute-with-value.html punctuation.separator.key-value.html
+//               ^^^^^^^ meta.attribute-with-value.html meta.string.html meta.interpolation.astro
+//                      ^^ punctuation.definition.tag.end.astro
 
 <Layout>
 // <- meta.tag.component.begin.astro punctuation.definition.tag.begin.astro
