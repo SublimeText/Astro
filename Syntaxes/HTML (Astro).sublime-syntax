@@ -315,6 +315,7 @@ contexts:
       push: astro-comment-content
 
   astro-comment-content:
+    - meta_include_prototype: false
     - meta_scope: comment.block.astro
     - match: '>'
       scope: punctuation.definition.comment.end.astro
@@ -343,6 +344,7 @@ contexts:
       push: astro-close-tag-content
 
   astro-tag-content:
+    - meta_include_prototype: false
     - meta_scope: meta.tag.component.begin.astro
     - match: (is)(:)(raw){{attribute_name_break}}
       scope: meta.attribute-with-value.astro
@@ -355,6 +357,7 @@ contexts:
     - include: astro-tag-end-maybe-self-closing
 
   astro-component-raw:
+    - meta_include_prototype: false
     - meta_content_scope: meta.tag.component.begin.astro
     - match: '>'
       scope: meta.tag.component.begin.astro punctuation.definition.tag.end.astro
@@ -409,6 +412,7 @@ contexts:
         3: punctuation.definition.tag.end.astro
 
   astro-markdown-begin-tag-content:
+    - meta_include_prototype: false
     - meta_scope: meta.tag.component.begin.astro
     - match: '>'
       scope: meta.tag.component.begin.astro punctuation.definition.tag.end.astro
