@@ -1,0 +1,66 @@
+[
+	//
+	// The following key bindings enforce indentation by 2 chars in YAML frontmatter
+	// without regards to syntax specific or global indentation settings,
+	// to avoid YAML parsing errors.
+	//
+
+	{	// indent by one char if line starts with odd amount of spaces
+		"keys": ["tab"],
+		"command": "insert",
+		"args": {
+			"characters": " "
+		},
+		"context": [
+			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*[ ]$" }
+		]
+	},
+	{	// indent by two chars if line starts with even amount of spaces
+		"keys": ["tab"],
+		"command": "insert",
+		"args": {
+			"characters": "  "
+		},
+		"context": [
+			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*$" }
+		]
+	},
+	{	// unindent by one char if line starts with odd amount of spaces
+		"keys": ["shift+tab"],
+		"command": "left_delete",
+		"context": [
+			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*[ ]$" }
+		],
+	},
+	{ 	// unindent by two chars if line starts with even amount of spaces
+		"keys": ["shift+tab"],
+		"command": "chain",
+		"args": {
+			"commands": [
+				{"command": "left_delete" },
+				{"command": "left_delete" }
+			]
+		},
+		"context": [
+			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*$" }
+		],
+	},
+	{	// unindent by two chars if line starts with even amount of spaces
+		"keys": ["backspace"],
+		"command": "chain",
+		"args": {
+			"commands": [
+				{"command": "left_delete" },
+				{"command": "left_delete" }
+			]
+		},
+		"context": [
+			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*$" }
+		]
+	}
+]
