@@ -5,6 +5,15 @@
 	// to avoid YAML parsing errors.
 	//
 
+	{	// insert newline but suppress indentation
+		"keys": ["enter"],
+		"command": "insert_snippet",
+		"args": { "contents": "\n" },
+		"context": [
+			{ "key": "selector", "operand": "text.html.markdown meta.frontmatter source.yaml" },
+			{ "key": "following_text", "operator": "regex_match", "operand": "^$" }
+		]
+	},
 	{	// indent by one char if line starts with odd amount of spaces
 		"keys": ["tab"],
 		"command": "insert",
