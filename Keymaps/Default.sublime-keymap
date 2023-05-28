@@ -21,7 +21,7 @@
 			"characters": " "
 		},
 		"context": [
-			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "selector", "operand": "text.html.markdown meta.frontmatter source.yaml" },
 			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*[ ]$" }
 		]
 	},
@@ -32,7 +32,7 @@
 			"characters": "  "
 		},
 		"context": [
-			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "selector", "operand": "text.html.markdown meta.frontmatter source.yaml" },
 			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*$" }
 		]
 	},
@@ -40,7 +40,7 @@
 		"keys": ["shift+tab"],
 		"command": "left_delete",
 		"context": [
-			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "selector", "operand": "text.html.markdown meta.frontmatter source.yaml" },
 			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*[ ]$" }
 		],
 	},
@@ -54,7 +54,7 @@
 			]
 		},
 		"context": [
-			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "selector", "operand": "text.html.markdown meta.frontmatter source.yaml" },
 			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*$" }
 		],
 	},
@@ -68,7 +68,7 @@
 			]
 		},
 		"context": [
-			{ "key": "selector", "operand": "meta.frontmatter source.yaml" },
+			{ "key": "selector", "operand": "text.html.markdown meta.frontmatter source.yaml" },
 			{ "key": "preceding_text", "operator": "regex_match", "operand": "(?:[ ]{2})*$" }
 		]
 	}
