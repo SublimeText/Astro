@@ -31,6 +31,6 @@ The easiest way to install is using [Package Control](https://packagecontrol.io)
 
 - Astro 2.0.0 requires Sublime Text 4126+
 - Syntax highlighting in `<style>` tags is powered by 3rd-party packages
-  - [LESS](https://packagecontrol.io/packages/LESS)
+  - [Less](https://packagecontrol.io/packages/Less)
   - [Sass](https://packagecontrol.io/packages/Sass)
   - [Stylus](https://packagecontrol.io/packages/Stylus)
