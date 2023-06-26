@@ -89,6 +89,18 @@ contexts:
 
 ###[ HTML SCRIPT TAG ]########################################################
 
+  script-tag:
+    - match: (<)((?i:script)){{tag_name_break}}
+      captures:
+        1: punctuation.definition.tag.begin.html
+        2: entity.name.tag.script.html
+      push: script-typescript
+    - match: (</)((?i:script){{tag_name_break}})
+      captures:
+        1: punctuation.definition.tag.begin.html
+        2: entity.name.tag.script.html
+      push: script-close-tag-content
+
   script-common:
     - meta_prepend: true
     - include: script-lang-attribute
@@ -104,7 +116,7 @@ contexts:
       scope: punctuation.separator.key-value.html
       set: script-lang-attribute-value
     - match: (?=\S)
-      set: script-javascript
+      set: script-typescript
 
   script-lang-attribute-value:
     - meta_include_prototype: false
@@ -124,12 +136,29 @@ contexts:
         - tag-generic-attribute-value
     - match: (?=>|''|"")
       set:
-        - script-javascript
+        - script-typescript
         - tag-generic-attribute-meta
         - tag-generic-attribute-value
     - match: (?=\S)
       set:
         - script-other
+        - tag-generic-attribute-meta
+        - tag-generic-attribute-value
+
+  script-type-attribute-assignment:
+    - meta_include_prototype: false
+    - meta_content_scope: meta.tag.script.begin.html meta.attribute-with-value.html
+    - match: =
+      scope: punctuation.separator.key-value.html
+      set: script-type-attribute-value
+    - match: (?=\S)
+      set: script-typescript
+
+  script-type-decider:
+    - meta_prepend: true
+    - match: (?=>|''|"")
+      set:
+        - script-javascript
         - tag-generic-attribute-meta
         - tag-generic-attribute-value
 
