@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[---
+$1
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>${2:Document}</title>
+	</head>
+	<body>
+		$0
+	</body>
+</html>
+]]></content>
+	<tabTrigger>page_html</tabTrigger>
+	<scope>text.html.astro</scope>
+	<description>Page with full HTML</description>
+</snippet>
