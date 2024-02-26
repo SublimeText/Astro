@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[---
+import ${1:Layout} from "../layouts/$1.astro"
+---
+
+<$1>
+	$0
+</$1>
+]]></content>
+	<tabTrigger>page_layout</tabTrigger>
+	<scope>text.html.astro</scope>
+	<description>Page from Layout</description>
+</snippet>
