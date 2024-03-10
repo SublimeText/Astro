@@ -86,21 +86,21 @@ The {frontmatter.author} is {frontmatter.age} and lives in Toronto, Canada.
 
 ```astro
 ---
-| <- markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro punctuation.section.block.begin.frontmatter.astro
+| <- markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro punctuation.section.frontmatter.begin.astro
 |^^^ markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro
-|^^ punctuation.section.block.begin.frontmatter.astro
+|^^ punctuation.section.frontmatter.begin.astro
 
 | <- markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro source.ts.embedded.astro
 ---
-| <- markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro punctuation.section.block.end.frontmatter.astro
+| <- markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro punctuation.section.frontmatter.end.astro
 |^^^ markup.raw.code-fence.markdown-gfm text.html.astro meta.frontmatter.astro
-|^^ punctuation.section.block.end.frontmatter.astro
+|^^ punctuation.section.frontmatter.end.astro
 
 <ul>
   {posts.map(post => <li>{post.frontmatter.title}</li>)}
 | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ markup.raw.code-fence.markdown-gfm text.html.astro meta.interpolation.astro
 | ^ punctuation.section.interpolation.begin.astro
-|  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro meta.function-call.method.js
+|  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro
 |                                                      ^ punctuation.section.interpolation.end.astro
 </ul>
 ```
