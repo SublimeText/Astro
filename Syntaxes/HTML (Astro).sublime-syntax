@@ -3,7 +3,7 @@
 # https://github.com/withastro/language-tools/tree/main/packages/vscode/syntaxes
 # http://www.sublimetext.com/docs/syntax.html
 name: HTML (Astro)
-scope: text.html.astro
+scope: source.astro
 version: 2
 
 extends: Packages/HTML/HTML.sublime-syntax
