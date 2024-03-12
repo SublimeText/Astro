@@ -29,8 +29,8 @@ contexts:
         0: meta.code-fence.definition.begin.markdown-gfm
         2: punctuation.definition.raw.code-fence.begin.markdown
         5: constant.other.language-name.markdown
-      embed: scope:text.html.astro
-      embed_scope: markup.raw.code-fence.markdown-gfm text.html.astro
+      embed: scope:source.astro
+      embed_scope: markup.raw.code-fence.markdown-gfm source.astro
       escape: '{{fenced_code_block_escape}}'
       escape_captures:
         0: meta.code-fence.definition.end.markdown-gfm

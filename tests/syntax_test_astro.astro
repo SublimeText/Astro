@@ -65,7 +65,7 @@
 // ^ entity.name.tag
 //   ^^^^^ entity.other.attribute-name
 //        ^ punctuation.separator.key-value
-//         ^ punctuation.section.interpolation.begin.astro - source
+//         ^ punctuation.section.interpolation.begin.astro - source.tsx
 //          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro meta.string.js
 //           ^^^^^^^^^ meta.interpolation.js
 //           ^^ punctuation.section.interpolation.begin.js
@@ -73,16 +73,16 @@
 //                     ^^^^^^^^^ meta.interpolation.js
 //                     ^^ punctuation.section.interpolation.begin.js
 //                             ^ punctuation.section.interpolation.end.js
-//                                                ^ punctuation.section.interpolation.end.astro - source
+//                                                ^ punctuation.section.interpolation.end.astro - source.tsx
 //                                                  ^^^^ entity.other.attribute-name
 //                                                      ^ punctuation.separator.key-value
 //                                                       ^^^^^^ meta.path.url.html meta.string.html meta.interpolation.astro
 
   <ul>{posts.map(post => <li>{post.frontmatter.title}</li>)}</ul>
 //^^^^ meta.tag.block
-//    ^ meta.interpolation.astro punctuation.section.interpolation.begin.astro - source
+//    ^ meta.interpolation.astro punctuation.section.interpolation.begin.astro - source.tsx
 //     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.interpolation.astro source.tsx.embedded.astro
-//                                                         ^ meta.interpolation.astro punctuation.section.interpolation.end.astro - source
+//                                                         ^ meta.interpolation.astro punctuation.section.interpolation.end.astro - source.tsx
 //                                                          ^^^^^ meta.tag.block
 
   <raw.Component attr:value is:raw attr:value=Value> <p>Text</p> </raw.Component>
@@ -197,7 +197,7 @@
 //                              ^^ punctuation.definition.tag.end.astro
 
   </Markdown>
-//^^^^^^^^^^^ text.html.astro meta.tag.component.end.astro - text.html.markdown.astro - meta.tag.component meta.tag.component
+//^^^^^^^^^^^ source.astro meta.tag.component.end.astro - text.html.markdown.astro - meta.tag.component meta.tag.component
 //^^ punctuation.definition.tag.begin.astro
 //  ^^^^^^^^ entity.name.tag.component.astro support.class.component.astro
 //          ^ punctuation.definition.tag.end.astro
