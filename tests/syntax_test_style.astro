@@ -182,6 +182,22 @@
 //    ^^^^^ entity.name.tag.style.html
 //         ^ punctuation.definition.tag.end.html
 
+    <style lang="postcss">
+        <!--
+// ^^^^^^^^^ - source.postcss
+//      ^^^^ comment.block.html punctuation.definition.comment.begin.html
+
+// <- source.postcss.embedded.html
+        -->
+//      ^^^ comment.block.html punctuation.definition.comment.end.html - source.postcss
+//         ^ - source.postcss - comment - meta.tag
+    </style>
+// <- - source.postcss - comment - meta.tag
+//^^ - source.postcss - comment - meta.tag
+//  ^^^^^^^^ meta.tag - source.postcss
+//  ^^ punctuation.definition.tag.begin.html
+//    ^^^^^ entity.name.tag.style.html
+//         ^ punctuation.definition.tag.end.html
 
     <style lang="sass">
 //  ^^^^^^^^^^^^^^^^^^^ meta.tag.style.begin.html
