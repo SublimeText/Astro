@@ -37,8 +37,6 @@
 // <- source.css.embedded.html
 
     </style>
-// <- source.css.embedded.html - source.css source.css
-// ^ source.css.embedded.html - source.css source.css
 //  ^^^^^^^^ meta.tag - source.css
 //  ^^ punctuation.definition.tag.begin.html
 //    ^^^^^ entity.name.tag.style.html
@@ -49,11 +47,9 @@
     <!--
 //^^^^^^ - meta.tag - source.css
 //  ^^^^ comment.block.html punctuation.definition.comment.begin.html
-//      ^ source.css.embedded.html - source.css source.css - meta.tag - comment
     h1 {}
 // ^^^^^^^ source.css.embedded.html - source.css source.css - meta.tag
     -->
-//^^ source.css.embedded.html - meta.tag - comment
 //  ^^^^ - source.css - meta.tag
 //  ^^^ comment.block.html punctuation.definition.comment.end.html
     var i = 0;
@@ -73,13 +69,11 @@
 //        ^ punctuation.definition.tag.end.html
 //         ^ - meta.tag - comment
 //          ^^^^ comment.block.html punctuation.definition.comment.begin.html
-//              ^ source.css.embedded.html - source.css source.css
 
     h1 {}
 // <- source.css.embedded.html - source.css source.css
 
     --> </style>
-// ^ source.css.embedded.html - source.css source.css
 //  ^^^^^^^^^^^^^ - source.css
 //     ^ - meta.tag - comment
 //      ^^^^^^^^ meta.tag
@@ -100,13 +94,11 @@
 //             ^ punctuation.separator.key-value.html
 //              ^^^^^^^^^^ string.quoted.double.html
 //                          ^^^^ comment.block.html punctuation.definition.comment.begin.html
-//                              ^ source.css.embedded.html
 
     h1 {}
 // <- source.css.embedded.html - source.css source.css
 
     --> </style>
-// ^ source.css.embedded.html - source.css source.css
 //  ^^^^^^^^^^^^^ - source.css
 //     ^ - meta.tag - comment
 //      ^^^^^^^^ meta.tag
@@ -128,8 +120,6 @@
 // <- source.css.embedded.html - source.css source.css
 
     </style>
-// <- source.css.embedded.html - source.css source.css
-// ^ source.css.embedded.html - source.css source.css
 //  ^^^^^^^^ meta.tag - source.css
 //  ^^ punctuation.definition.tag.begin.html
 //    ^^^^^ entity.name.tag.style.html
@@ -158,8 +148,6 @@
 
 // <- source.less.embedded.html - source.css source.css
     </style>
-// <- source.less.embedded.html - source.css source.css
-//^^ source.less.embedded.html - source.css source.css
 //  ^^^^^^^^ meta.tag - source.css
 //  ^^ punctuation.definition.tag.begin.html
 //    ^^^^^ entity.name.tag.style.html
@@ -167,17 +155,17 @@
 
     <style lang="less">
         <!--
-// ^^^^^^^^^ - source.css
+// ^^^^^^^^^ - source.less
 //      ^^^^ comment.block.html punctuation.definition.comment.begin.html
-//          ^ source.less.embedded.html - source.css source.css
+
+// <- source.less.embedded.html
         -->
-// ^^^^^ source.less.embedded.html - source.css source.css
-//      ^^^ comment.block.html punctuation.definition.comment.end.html - source.css
-//         ^ - source.css - comment - meta.tag
+//      ^^^ comment.block.html punctuation.definition.comment.end.html - source.less
+//         ^ - source.less - comment - meta.tag
     </style>
-// <- - source.css - comment - meta.tag
-//^^ - source.css - comment - meta.tag
-//  ^^^^^^^^ meta.tag - source.css
+// <- - source.less - comment - meta.tag
+//^^ - source.less - comment - meta.tag
+//  ^^^^^^^^ meta.tag - source.less
 //  ^^ punctuation.definition.tag.begin.html
 //    ^^^^^ entity.name.tag.style.html
 //         ^ punctuation.definition.tag.end.html
@@ -195,8 +183,6 @@
 
 // <- source.sass.embedded.html - source.css source.css
     </style>
-// <- source.sass.embedded.html - source.css source.css
-//^^ source.sass.embedded.html - source.css source.css
 //  ^^^^^^^^ meta.tag - source.css
 //  ^^ punctuation.definition.tag.begin.html
 //    ^^^^^ entity.name.tag.style.html
@@ -206,11 +192,10 @@
         <!--
 // ^^^^^^^^^ - source.css
 //      ^^^^ comment.block.html punctuation.definition.comment.begin.html
-//          ^ source.sass.embedded.html - source.css source.css
+
+// <- source.sass.embedded.html
         -->
-// ^^^^^ source.sass.embedded.html - source.css source.css
 //      ^^^ comment.block.html punctuation.definition.comment.end.html - source.css
-//         ^ - source.css - comment - meta.tag
     </style>
 // <- - source.css - comment - meta.tag
 //^^ - source.css - comment - meta.tag
@@ -232,8 +217,6 @@
 
 // <- source.scss.embedded.html - source.css source.css
     </style>
-// <- source.scss.embedded.html - source.css source.css
-//^^ source.scss.embedded.html - source.css source.css
 //  ^^^^^^^^ meta.tag - source.css
 //  ^^ punctuation.definition.tag.begin.html
 //    ^^^^^ entity.name.tag.style.html
@@ -243,11 +226,10 @@
         <!--
 // ^^^^^^^^^ - source.css
 //      ^^^^ comment.block.html punctuation.definition.comment.begin.html
-//          ^ source.scss.embedded.html - source.css source.css
+
+// <- source.scss.embedded.html
         -->
-// ^^^^^ source.scss.embedded.html - source.css source.css
 //      ^^^ comment.block.html punctuation.definition.comment.end.html - source.css
-//         ^ - source.css - comment - meta.tag
     </style>
 // <- - source.css - comment - meta.tag
 //^^ - source.css - comment - meta.tag
