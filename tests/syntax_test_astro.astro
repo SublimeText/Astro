@@ -27,9 +27,9 @@
 //         ^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html - meta.interpolation
 //                 ^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro - meta.group
 //                     ^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js - meta.string meta.string
-//                       ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js meta.string.js - meta.interpolation meta.interpolation
-//                                 ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js meta.string.js meta.interpolation.js
-//                                           ^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js meta.string.js - meta.interpolation meta.interpolation
+//                       ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js meta.string - meta.interpolation meta.interpolation
+//                                 ^^^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js meta.string meta.interpolation.js
+//                                           ^^^^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js meta.string - meta.interpolation meta.interpolation
 //                                                 ^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro meta.group.js - meta.string meta.string
 //                                                   ^^^ meta.tag.sgml.cdata.html meta.string.html meta.interpolation.astro - meta.group
 //                                                      ^^^^^^^^ meta.tag.sgml.cdata.html meta.string.html
@@ -42,9 +42,9 @@
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro
 //                   ^^ variable.function.js
 //                     ^ punctuation.section.group.begin.js
-//                       ^^^^^^^^^^ meta.string.html meta.string.js string.quoted.other.js
-//                                 ^^^^^^^^^^ meta.string.html meta.string.js meta.interpolation.js
-//                                           ^^^^^^ meta.string.html meta.string.js string.quoted.other.js
+//                       ^^^^^^^^^^ meta.string.html meta.string string.quoted.other.js
+//                                 ^^^^^^^^^^ meta.string.html meta.string meta.interpolation.js
+//                                           ^^^^^^ meta.string.html meta.string string.quoted.other.js
 //                                                  ^ punctuation.section.group.end.js
 //                                                   ^ punctuation.terminator.statement.js
 //                                                     ^ punctuation.section.interpolation.end.astro - source.tsx
@@ -66,7 +66,7 @@
 //   ^^^^^ entity.other.attribute-name
 //        ^ punctuation.separator.key-value
 //         ^ punctuation.section.interpolation.begin.astro - source.tsx
-//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro meta.string.js
+//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro meta.string
 //           ^^^^^^^^^ meta.interpolation.js
 //           ^^ punctuation.section.interpolation.begin.js
 //                   ^ punctuation.section.interpolation.end.js
