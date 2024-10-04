@@ -221,6 +221,11 @@ contexts:
     - include: style-lang-decider
 
   style-lang-decider:
+    - match: (?i)(?=postcss{{unquoted_attribute_break}}|'postcss'|"postcss")
+      set:
+        - style-postcss
+        - tag-generic-attribute-meta
+        - tag-generic-attribute-value
     - match: (?i)(?=css{{unquoted_attribute_break}}|\'css\'|"css")
       set:
         - style-css
@@ -271,6 +276,27 @@ contexts:
         1: source.less.embedded.html
         2: comment.block.html punctuation.definition.comment.end.html
         3: source.less.embedded.html
+        4: comment.block.html punctuation.definition.comment.end.html
+
+  style-postcss:
+    - meta_scope: meta.tag.style.begin.html
+    - match: '>'
+      scope: punctuation.definition.tag.end.html
+      set: style-postcss-content
+    - include: style-common
+
+  style-postcss-content:
+    - match: '{{style_content_begin}}'
+      captures:
+        1: comment.block.html punctuation.definition.comment.begin.html
+      pop: 1
+      embed: scope:source.postcss
+      embed_scope: source.postcss.embedded.html
+      escape: '{{style_content_end}}'
+      escape_captures:
+        1: source.postcss.embedded.html
+        2: comment.block.html punctuation.definition.comment.end.html
+        3: source.postcss.embedded.html
         4: comment.block.html punctuation.definition.comment.end.html
 
   style-sass:
