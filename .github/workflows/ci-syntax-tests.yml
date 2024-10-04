@@ -31,6 +31,12 @@ jobs:
             default_packages: v4134
           - build: 4143   # first supported stable ST build
             default_packages: v4143
+          - build: 4152
+            default_packages: v4152
+          - build: 4169
+            default_packages: v4169
+          - build: 4180
+            default_packages: v4180
           - build: latest # latest available ST build
             default_packages: master
     steps:
