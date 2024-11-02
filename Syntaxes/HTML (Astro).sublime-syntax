@@ -107,12 +107,12 @@ contexts:
     - include: script-lang-attribute
 
   script-lang-attribute:
-    - match: (?i:lang){{attribute_name_break}}
-      scope: meta.attribute-with-value.html entity.other.attribute-name.html
+    - match: (?i:lang(?:uage)?){{attribute_name_break}}
+      scope: meta.attribute-with-value.lang.html entity.other.attribute-name.html
       set: script-lang-attribute-assignment
 
   script-lang-attribute-assignment:
-    - meta_content_scope: meta.tag.script.begin.html meta.attribute-with-value.html
+    - meta_content_scope: meta.tag.script.begin.html meta.attribute-with-value.lang.html
     - match: =
       scope: punctuation.separator.key-value.html
       set: script-lang-attribute-value
@@ -121,30 +121,35 @@ contexts:
 
   script-lang-attribute-value:
     - meta_include_prototype: false
-    - meta_scope: meta.tag.script.begin.html meta.attribute-with-value.html
+    - meta_scope: meta.tag.script.begin.html meta.attribute-with-value.lang.html
     - include: script-lang-decider
 
   script-lang-decider:
     - match: (?i)(?=js{{unquoted_attribute_break}}|\'js\'|"js")
       set:
         - script-javascript
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
     - match: (?i)(?=ts{{unquoted_attribute_break}}|\'ts\'|"ts")
       set:
         - script-typescript
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
     - match: (?=>|''|"")
       set:
         - script-typescript
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
     - match: (?=\S)
       set:
         - script-other
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
+
+  tag-lang-attribute-meta:
+    - meta_include_prototype: false
+    - meta_scope: meta.attribute-with-value.lang.html
+    - include: immediately-pop
 
   script-type-attribute-assignment:
     - meta_include_prototype: false
@@ -204,12 +209,12 @@ contexts:
     - include: style-lang-attribute
 
   style-lang-attribute:
-    - match: (?i:lang){{attribute_name_break}}
-      scope: meta.attribute-with-value.html entity.other.attribute-name.html
+    - match: (?i:lang(?:uage)?){{attribute_name_break}}
+      scope: meta.attribute-with-value.lang.html entity.other.attribute-name.html
       set: style-lang-attribute-assignment
 
   style-lang-attribute-assignment:
-    - meta_content_scope: meta.tag.style.begin.html meta.attribute-with-value.html
+    - meta_content_scope: meta.tag.style.begin.html meta.attribute-with-value.lang.html
     - match: =
       scope: punctuation.separator.key-value.html
       set: style-lang-attribute-value
@@ -218,44 +223,44 @@ contexts:
 
   style-lang-attribute-value:
     - meta_include_prototype: false
-    - meta_scope: meta.tag.style.begin.html meta.attribute-with-value.html
+    - meta_scope: meta.tag.style.begin.html meta.attribute-with-value.lang.html
     - include: style-lang-decider
 
   style-lang-decider:
     - match: (?i)(?=postcss{{unquoted_attribute_break}}|'postcss'|"postcss")
       set:
         - style-postcss
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
     - match: (?i)(?=css{{unquoted_attribute_break}}|\'css\'|"css")
       set:
         - style-css
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
     - match: (?i)(?=less{{unquoted_attribute_break}}|\'less\'|"less")
       set:
         - style-less
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
     - match: (?i)(?=sass{{unquoted_attribute_break}}|\'sass\'|"sass")
       set:
         - style-sass
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
     - match: (?i)(?=scss{{unquoted_attribute_break}}|\'scss\'|"scss")
       set:
         - style-scss
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
     - match: (?i)(?=stylus{{unquoted_attribute_break}}|\'stylus\'|"stylus")
       set:
         - style-stylus
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
     - match: (?=\S)
       set:
         - style-css
-        - tag-generic-attribute-meta
+        - tag-lang-attribute-meta
         - tag-generic-attribute-value
 
   style-less:
