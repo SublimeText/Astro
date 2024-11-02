@@ -127,12 +127,12 @@ contexts:
     - include: script-lang-decider
 
   script-lang-decider:
-    - match: (?i)(?=js{{unquoted_attribute_break}}|\'js\'|"js")
+    - match: (?i)(?=(?:js|javascript){{unquoted_attribute_break}}|\'(?:js|javascript)\'|"(?:js|javascript)")
       set:
         - script-javascript
         - tag-lang-attribute-meta
         - tag-generic-attribute-value
-    - match: (?i)(?=ts{{unquoted_attribute_break}}|\'ts\'|"ts")
+    - match: (?i)(?=(?:ts|typescript){{unquoted_attribute_break}}|\'(?:ts|typescript)\'|"(?:ts|typescript)")
       set:
         - script-typescript
         - tag-lang-attribute-meta
