@@ -28,8 +28,9 @@ contexts:
 
   main:
     - meta_include_prototype: false
+    - meta_scope: text.html.astro meta.template.astro
     - match: ''
-      set: [html, frontmatter]
+      push: [html, frontmatter]
 
   frontmatter:
     - meta_include_prototype: false
