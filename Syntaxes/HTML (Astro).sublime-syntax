@@ -20,6 +20,8 @@ variables:
 
   astro_component_char: '[^/?!\s<>=]'
 
+  typescript_mime_type: (?:(?:text|application)/(?:ts|typescript))
+
 contexts:
 
   prototype:
@@ -174,9 +176,14 @@ contexts:
 
   script-type-decider:
     - meta_prepend: true
+    - match: (?i)(?={{typescript_mime_type}}{{unquoted_attribute_break}}|'{{typescript_mime_type}}'|"{{typescript_mime_type}}")
+      set:
+        - script-typescript
+        - tag-type-attribute-meta
+        - tag-generic-attribute-value
     - match: (?=>|''|"")
       set:
-        - script-javascript
+        - script-typescript
         - tag-type-attribute-meta
         - tag-generic-attribute-value
 
