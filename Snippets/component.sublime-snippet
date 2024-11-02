@@ -6,6 +6,16 @@ $1
 $0
 ]]></content>
 	<tabTrigger>component</tabTrigger>
-	<scope>source.astro</scope>
+	<scope>
+		source.astro
+		- source.astro meta.tag
+		- source.astro meta.embedded
+		- source.astro meta.interpolation
+		- source.astro meta.string
+		- source.astro comment
+		- source.astro source
+		- source.astro string
+		- (text.html.markdown - markup.raw.code-fence source.astro)
+	</scope>
 	<description>Component</description>
 </snippet>
