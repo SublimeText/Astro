@@ -22,6 +22,8 @@ The easiest way to install is using [Package Control](https://packagecontrol.io)
 2. Rename it to _Astro.sublime-package_
 3. Copy it into _Installed Packages_ directory
 
+> [!NOTE]
+>
 > To find _Installed Packages_...
 >
 > 1. call _Menu > Preferences > Browse Packages.._
@@ -32,6 +34,7 @@ The easiest way to install is using [Package Control](https://packagecontrol.io)
 - Astro 2.0.0 requires Sublime Text 4126+
 - Syntax highlighting in `<style>` tags is powered by 3rd-party packages
   - [Less](https://packagecontrol.io/packages/Less)
+  - [PostCSS](https://packagecontrol.io/packages/PostCSS)
   - [Sass](https://packagecontrol.io/packages/Sass)
   - [Stylus](https://packagecontrol.io/packages/Stylus)
 - Intellisense features are provided by [LSP](https://packagecontrol.io/packages/LSP) and [LSP-astro](https://packagecontrol.io/packages/LSP-astro).
