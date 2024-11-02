@@ -151,22 +151,40 @@ contexts:
     - meta_scope: meta.attribute-with-value.lang.html
     - include: immediately-pop
 
+  script-type-attribute:
+    # required until https://github.com/sublimehq/Packages/pull/4061
+    - match: (?i:type){{attribute_name_break}}
+      scope: meta.attribute-with-value.type.html entity.other.attribute-name.html
+      set: script-type-attribute-assignment
+
   script-type-attribute-assignment:
     - meta_include_prototype: false
-    - meta_content_scope: meta.tag.script.begin.html meta.attribute-with-value.html
+    - meta_content_scope: meta.tag.script.begin.html meta.attribute-with-value.type.html
     - match: =
       scope: punctuation.separator.key-value.html
       set: script-type-attribute-value
     - match: (?=\S)
       set: script-typescript
 
+  script-type-attribute-value:
+    # required until https://github.com/sublimehq/Packages/pull/4061
+    - meta_include_prototype: false
+    - meta_scope: meta.tag.script.begin.html meta.attribute-with-value.type.html
+    - include: script-type-decider
+
   script-type-decider:
     - meta_prepend: true
     - match: (?=>|''|"")
       set:
         - script-javascript
-        - tag-generic-attribute-meta
+        - tag-type-attribute-meta
         - tag-generic-attribute-value
+
+  tag-type-attribute-meta:
+    # required until https://github.com/sublimehq/Packages/pull/4061
+    - meta_include_prototype: false
+    - meta_scope: meta.attribute-with-value.type.html
+    - include: immediately-pop
 
   script-typescript:
     - meta_scope: meta.tag.script.begin.html

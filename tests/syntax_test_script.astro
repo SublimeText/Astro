@@ -89,8 +89,35 @@
 
 
     <script type="text/javascript"> <!--
+//  ^^^^^^^^ meta.tag - meta.attribute-with-value - source.js
+//          ^^^^^^^^^^^^^^^^^^^^^^ meta.tag meta.attribute-with-value - meta.attribute-with-value meta.attribute-with-value - source.js
+//                                ^ meta.tag - meta.attribute-with-value - source.js
+//                                 ^^^^^ - meta.tag - source.js
+//   ^^^^^^ entity.name.tag
+//          ^^^^ entity.other.attribute-name.html
+//              ^ punctuation.separator.key-value.html
+//               ^^^^^^^^^^^^^^^^^ string.quoted.double.html
+//                                  ^^^^ comment.block.html punctuation.definition.comment.begin.html
+
+    var foo = 100;
+// <- source.js.embedded.html - source.js source.js
+
+    (a --> b);
+//     ^^^ source.js.embedded.html keyword.operator - comment
+
+    --> </script>
+//  ^^^^^^^^^^^^^^ - source.js
+//     ^ - meta.tag - comment
+//      ^^^^^^^^^ meta.tag
+//               ^ - meta.tag
+//  ^^^ comment.block.html punctuation.definition.comment.end.html
+//      ^^ punctuation.definition.tag.begin.html
+//        ^^^^^^ entity.name.tag.script.html
+//              ^ punctuation.definition.tag.end.html
+
+    <script type="text/typescript"> <!--
 //  ^^^^^^^^ meta.tag - meta.attribute-with-value - source.ts
-//          ^^^^^^^^^^^^^^^^^^^^^^ meta.tag meta.attribute-with-value.html - meta.attribute-with-value meta.attribute-with-value - source.ts
+//          ^^^^^^^^^^^^^^^^^^^^^^ meta.tag meta.attribute-with-value.type.html - meta.attribute-with-value meta.attribute-with-value - source.ts
 //                                ^ meta.tag - meta.attribute-with-value - source.ts
 //                                 ^^^^^ - meta.tag - source.ts
 //   ^^^^^^ entity.name.tag
@@ -101,10 +128,10 @@
 //                                      ^ source.js.embedded.html
 
     var foo = 100;
-// <- source.js.embedded.html - source.ts source.ts
+// <- source.ts.embedded.html - source.ts source.ts
 
     (a --> b);
-//     ^^^ source.js.embedded.html keyword.operator - comment
+//     ^^^ source.ts.embedded.html keyword.operator - comment
 
     --> </script>
 // ^ source.js.embedded.html - source.ts source.ts
@@ -120,10 +147,10 @@
 
     <script
     type
-//  ^^^^ meta.tag meta.attribute-with-value.html - meta.attribute-with-value meta.attribute-with-value
+//  ^^^^ meta.tag meta.attribute-with-value.type.html - meta.attribute-with-value meta.attribute-with-value
     =
     application/jAvAsCrIpT>
-//  ^^^^^^^^^^^^^^^^^^^^^^ meta.tag meta.attribute-with-value.html - meta.attribute-with-value meta.attribute-with-value
+//  ^^^^^^^^^^^^^^^^^^^^^^ meta.tag meta.attribute-with-value - meta.attribute-with-value meta.attribute-with-value
     var foo = 100;
 // <- source.ts.embedded.html - source.ts source.ts
 // ^^^^^^^^^^^^^^^^ source.ts.embedded.html - source.ts source.ts
