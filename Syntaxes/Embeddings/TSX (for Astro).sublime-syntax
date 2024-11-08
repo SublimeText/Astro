@@ -1,0 +1,24 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/syntax.html
+scope: source.tsx.embedded.astro
+version: 2
+hidden: true
+
+extends: Packages/JavaScript/TSX.sublime-syntax
+
+contexts:
+
+  jsx-meta:
+    # add support for multiple elements
+    # https://docs.astro.build/en/basics/astro-syntax/#multiple-elements
+    - meta_include_prototype: false
+    - meta_scope: meta.jsx.js
+    - match: '<(?=\s*[/>{{identifier_start}}])'
+      scope: punctuation.definition.tag.begin.js
+      push: jsx-tag-attributes-top
+    - include: else-pop
+
+  jsx-tag-attributes:
+    - meta_prepend: true
+    - include: HTML (Astro).sublime-syntax#astro-directives

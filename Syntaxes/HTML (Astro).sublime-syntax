@@ -553,5 +553,5 @@ contexts:
     - match: \}
       scope: punctuation.section.interpolation.end.astro
       pop: 1
-    - include: scope:source.tsx#script
+    - include: scope:source.tsx.embedded.astro#script
       apply_prototype: true

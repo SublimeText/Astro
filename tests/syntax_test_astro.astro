@@ -222,3 +222,90 @@
 //                          ^ punctuation.section.interpolation.end.astro
 //                            ^^ punctuation.definition.tag.end.astro
 </Layout>
+
+// Dynamic HTML
+
+<ul>{items.map((item) => (<li>{item}</li>))}</ul>
+//^^ meta.tag
+//^ entity.name.tag.block.any.html
+// ^ punctuation.definition.tag.end.html
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.interpolation.astro
+//  ^ punctuation.section.interpolation.begin.astro
+//   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro
+//   ^^^^^ variable.other
+//        ^ punctuation.accessor
+//         ^^^ meta.function-call variable.function
+//            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call meta.group
+//                       ^^^^^^^^^^^^^^^^^ meta.block meta.group
+//                        ^^^^^^^^^^^^^^^ meta.jsx
+//                        ^^^^ meta.tag
+//                            ^^^^^^ meta.interpolation
+//                                  ^^^^^ meta.tag
+//                                          ^^^^^ meta.tag
+
+  {visible && <p>Show me!</p>}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.interpolation.astro
+//^ punctuation.section.interpolation.begin.astro
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro
+// ^^^^^^^ variable.other
+//         ^^ keyword.operator.logical.js
+//            ^^^^^^^^^^^^^^^ meta.jsx.js
+//            ^^^ meta.tag
+//                       ^^^^ meta.tag
+//                           ^ punctuation.section.interpolation.end.astro
+
+  {visible ? <p>Show me!</p> : <p>Else show me!</p>}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.interpolation.astro
+//^ punctuation.section.interpolation.begin.astro
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro
+// ^^^^^^^ variable.other
+//         ^ keyword.operator.ternary.js
+//           ^^^^^^^^^^^^^^^^ meta.jsx.js
+//           ^^^ meta.tag
+//                      ^^^^ meta.tag
+//                           ^ keyword.operator.ternary.js
+//                             ^^^^^^^^^^^^^^^^^^^^ meta.jsx.js
+//                             ^^^ meta.tag
+//                                             ^^^^ meta.tag
+//                                                 ^ punctuation.section.interpolation.end.astro
+
+// Multiple Elements
+
+  {(<p>Show</p><p>me</p>)}
+//^^^^^^^^^^^^^^^^^^^^^^^^ meta.interpolation.astro
+//^ punctuation.section.interpolation.begin.astro
+// ^^^^^^^^^^^^^^^^^^^^^^ source.tsx.embedded.astro meta.group.js
+// ^ punctuation.section.group.begin.js
+//  ^^^^^^^^^^^^^^^^^^^^ meta.jsx.js
+//  ^^^ meta.tag
+//         ^^^^^^^ meta.tag
+//                  ^^^^ meta.tag
+//                       ^ punctuation.section.interpolation.end.astro
+
+// https://github.com/SublimeText/Astro/issues/11
+
+  {VITE_USE_VITE_WEB_COMPONENTS && (
+      <script type="module" src="http://localhost:5173/@vite/client" is:inline></script>
+      <script type="module" src="http://localhost:5173/src/main.js" is:inline></script>
+//    ^ meta.tag punctuation.definition.tag.begin.js
+//     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.tag
+//     ^^^^^^ entity.name.tag.native.js
+//            ^^^^ entity.other.attribute-name.js
+//                ^ punctuation.separator.key-value.js
+//                 ^^^^^^^^ string.quoted.double.js
+//                 ^ punctuation.definition.string.begin.js
+//                        ^ punctuation.definition.string.end.js
+//                          ^^^ entity.other.attribute-name.js
+//                             ^ punctuation.separator.key-value.js
+//                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.js
+//                              ^ punctuation.definition.string.begin.js
+//                                                                ^ punctuation.definition.string.end.js
+//                                                                  ^^^^^^^^^ meta.attribute-with-value.astro
+//                                                                  ^^ keyword.control.directive.astro
+//                                                                    ^ punctuation.separator.key-value.astro
+//                                                                     ^^^^^^ variable.parameter.astro
+//                                                                           ^ punctuation.definition.tag.end.js
+//                                                                            ^^ punctuation.definition.tag.begin.js
+//                                                                              ^^^^^^ entity.name.tag.native.js
+//                                                                                    ^ punctuation.definition.tag.end.js
+  )}
