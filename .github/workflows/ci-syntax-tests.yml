@@ -2,7 +2,10 @@ name: CI Syntax Tests
 
 on:
   push:
-    push:
+    branches:
+      - 'main'
+      - 'st4126'
+    tags-ignore:
       - '**'
     paths:
       - '.github/workflows/ci-syntax-tests.yml'
@@ -10,8 +13,6 @@ on:
       - '**/syntax_test_*'
       - '**.tmPreferences'
   pull_request:
-    branches:
-      - '**'
     paths:
       - '.github/workflows/ci-syntax-tests.yml'
       - '**.sublime-syntax'
@@ -25,6 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15   # default is 6 hours!
     strategy:
+      fail-fast: false
       matrix:
         include:
           - build: 4126
