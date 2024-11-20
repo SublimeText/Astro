@@ -29,9 +29,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - build: 4134   # first supported ST build
+          # first supported ST build
+          - build: 4134
             default_packages: v4134
-          - build: 4143   # first supported stable ST build
+          # Stable ST4 builds
+          - build: 4143
             default_packages: v4143
           - build: 4152
             default_packages: v4152
@@ -39,7 +41,8 @@ jobs:
             default_packages: v4169
           - build: 4180
             default_packages: v4180
-          - build: latest # latest available ST build
+          # Latest dev build
+          - build: latest
             default_packages: master
     steps:
       - name: Checkout Default Packages
