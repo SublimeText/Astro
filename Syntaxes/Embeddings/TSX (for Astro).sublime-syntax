@@ -14,10 +14,35 @@ contexts:
     # https://docs.astro.build/en/basics/astro-syntax/#multiple-elements
     - meta_include_prototype: false
     - meta_scope: meta.jsx.js
-    - match: '<(?=\s*[/>{{identifier_start}}])'
+    - match: <
       scope: punctuation.definition.tag.begin.js
-      push: jsx-tag-attributes-top
+      push: jsx-tag-begin
     - include: else-pop
+
+  jsx-tag-begin:
+    # required until sublimehq/Packages/PR#4114
+    - meta_include_prototype: false
+    - meta_scope: meta.tag.js
+    # note: type parameter modifiers indicate generic lambda
+    - match: (?=(?:in|out|const){{identifier_break}})
+      fail: arrow-function
+    - match: /
+      scope: punctuation.definition.tag.begin.js
+      set:
+        - jsx-expect-unmatched-tag-end
+        - jsx-tag-name
+    - match: (?=\S)
+      set:
+        - jsx-tag-attributes
+        - tsx-tag-check
+        - jsx-tag-name
+
+  jsx-expect-unmatched-tag-end:
+    # required until sublimehq/Packages/PR#4114
+    - meta_include_prototype: false
+    - meta_scope: invalid.illegal.unmatched-tag.js
+    - meta_content_scope: meta.tag.js
+    - include: jsx-expect-tag-end
 
   jsx-tag-attributes:
     - meta_prepend: true
